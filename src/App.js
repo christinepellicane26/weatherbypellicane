@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Titles from './components/titles';
 import Weather from './components/weather';
 
-const API_KEY = "7c47b90b4eab8a1af736cb499b4041fa";
+
 
 class App extends Component {
   constructor(props){
@@ -17,13 +17,14 @@ class App extends Component {
 
     }
   }
-  
- 
+   
   
   getWeather = async (event) => {
     event.preventDefault()
     const city = this.state.city
     const country = this.state.country
+    console.log(process.env.REACT_APP_WEATHER)
+    const API_KEY = '7c47b90b4eab8a1af736cb499b4041fa'
    
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&apiid=524901&APPID=${API_KEY}`);
     const data = await api_call.json();
@@ -52,8 +53,8 @@ class App extends Component {
   });
 }
   }
-  
 
+  
   handleChange =(event)=>{
     this.setState({[event.target.name]: event.target.value})
   }

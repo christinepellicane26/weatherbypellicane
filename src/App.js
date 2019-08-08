@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Titles from './components/titles';
 import Weather from './components/weather';
+// import 
 
 
 
@@ -28,7 +29,7 @@ class App extends Component {
    
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&apiid=524901&APPID=${API_KEY}`);
     const data = await api_call.json();
-    
+        
  
     if (city && country){
       this.setState({
@@ -37,6 +38,7 @@ class App extends Component {
       country: data.sys.country,
       humidity: data.main.humidity,
       description: data.weather[0].description,
+      wind: data.wind.speed,
       error: ""
     });
   
@@ -60,22 +62,26 @@ class App extends Component {
   }
 
   render () {
-    console.log(this.state)
+    // console.log(this.state)
     return (
         <div>
           <Titles />
           <div>
           <form onSubmit = {this.getWeather}>
-               <input onChange={this.handleChange} type = "text" name = "city" placeholder = "City..."/>
+               <center><input onChange={this.handleChange} type = "text" name = "city" placeholder = "City..."/>
                <input onChange ={this.handleChange} type = "text" name = "country" placeholder = "Country..."/>
-               <button type ='submit'>Get Weather</button>
+               
+               <button type ='submit'>Get Current Weather</button>
+               </center>
            </form>
            </div>
+
           <Weather temperature={this.state.temperature}
                    city={this.state.city} 
                    country={this.state.country}
                    humidity={this.state.humidity}
                    description={this.state.description}
+                   wind={this.state.wind}
                    error={this.state.error}   />
 
         </div>

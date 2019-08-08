@@ -4,8 +4,10 @@ import React from 'react';
 const Titles = ()=> (
    
             <div>
-                <h1>Weather Report</h1>
+                 <center>
+                <h1 style={{backgroundColor: "tan"}}>Weather Report</h1>
                 <p>What's the weather today?</p>
+                </center>   
                 
                 </div>
 

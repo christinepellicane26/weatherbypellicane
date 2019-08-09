@@ -16,6 +16,25 @@ function kphtomph(kph){
     return res.toFixed(0)
 }
 
+// hairDay=humidity=>{
+//     // const res = humidity(num)
+//     if (humidity <= 50) {
+//     return "Very good."
+//     }
+//     if (humidity >= (51 && 74)){
+//     return "Not so good"  
+//     }
+
+//     if (humidity >= (75 && 95)){
+//         return "Challenging"   
+//         }
+
+//     if (humidity >= (96 && 100)) {
+//          return "Dangerous- hat or ponytail advised"   
+//             }
+
+
+// }
 
 const Weather = props=> (
 
@@ -33,6 +52,7 @@ const Weather = props=> (
         {props.humidity && <p>Humidity: {props.humidity} %</p>}
         {props.wind && <p>Wind speed: {kphtomph(props.wind)}mph</p>}
         {props.description &&<p>{props.description}</p>}
+        {props.hairDay &&<p>What kind of hair day? {props.hairDay}</p>}
         {props.error &&<p>{props.error}</p>}
         </div>
         </div>

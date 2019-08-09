@@ -1,5 +1,7 @@
 body {
   text-align: center;
+  background-image: url("https://images.unsplash.com/photo-1545377446-446f9f6bd95b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80");
+  background-size: cover;
 }
 
 
@@ -9,6 +11,7 @@ body {
 }
 
 .container {
-  border-width: thick;
+  border: 2px;
+  background-size: contain;
   
 }

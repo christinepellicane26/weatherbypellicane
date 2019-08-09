@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Titles from './components/titles';
 import Weather from './components/weather';
+import './App.css';
 // import 
 
 
@@ -15,10 +16,31 @@ class App extends Component {
       humidity: undefined,
       descrption: undefined,
       error: undefined,
-
+      hairstatus:undefined,
     }
   }
    
+  hairDay=humidity=>{
+    if (humidity <= 50) {
+    return "No worries"
+    }
+
+    else if (humidity >= (51 && 74)){
+       return "Good hair day"
+      
+    }
+
+    else if (humidity >= (75 && 95)){
+      return "Challenging"
+    }
+        
+
+    else if (humidity >= (96 && 100)) {
+    return "Dangerous- consider a hat or ponytail"
+      }
+    }
+  
+
   
   getWeather = async (event) => {
     event.preventDefault()
@@ -29,8 +51,7 @@ class App extends Component {
    
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&apiid=524901&APPID=${API_KEY}`);
     const data = await api_call.json();
-        
- 
+    var har = this.hairDay(data.main.humidity)
     if (city && country){
       this.setState({
       temperature: data.main.temp,
@@ -39,9 +60,9 @@ class App extends Component {
       humidity: data.main.humidity,
       description: data.weather[0].description,
       wind: data.wind.speed,
+      hairstatus : har,
       error: ""
     });
-  
 
   } else {
     this.setState({
@@ -50,9 +71,15 @@ class App extends Component {
       country: undefined,
       humidity: undefined,
       description: undefined,
+      wind: undefined,
       error: "Please enter a value."
 
   });
+  if (this.state.humidity <= 500) {
+    this.setState({
+      hairstatus:"Good hair day"
+    })
+    }
 }
   }
 
@@ -82,6 +109,7 @@ class App extends Component {
                    humidity={this.state.humidity}
                    description={this.state.description}
                    wind={this.state.wind}
+                   hairDay={this.state.hairstatus}
                    error={this.state.error}   />
 
         </div>

@@ -25,17 +25,17 @@ class App extends Component {
     return "No worries"
     }
 
-    else if (humidity >= (51 && 74)){
+    else if (humidity >= 51 && humidity <=74){
        return "Good hair day"
       
     }
 
-    else if (humidity >= (75 && 95)){
+    else if (humidity >= 75 && humidity <=95){
       return "Challenging"
     }
         
 
-    else if (humidity >= (96 && 100)) {
+    else if (humidity >= 96 && humidity <=100) {
     return "Dangerous- consider a hat or ponytail"
       }
     }

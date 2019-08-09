@@ -26,7 +26,7 @@ class App extends Component {
     }
 
     else if (humidity >= 51 && humidity <=74){
-       return "Good hair day"
+       return "Iffy"
       
     }
 
@@ -75,13 +75,10 @@ class App extends Component {
       error: "Please enter a value."
 
   });
-  if (this.state.humidity <= 500) {
-    this.setState({
-      hairstatus:"Good hair day"
-    })
+
     }
 }
-  }
+  
 
   
   handleChange =(event)=>{

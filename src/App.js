@@ -47,7 +47,7 @@ class App extends Component {
     const city = this.state.city
     const country = this.state.country
     console.log(process.env.REACT_APP_WEATHER)
-    const API_KEY = '28031e04ae412bd5c649155aafde9fa6'
+    const API_KEY = process.env.API_KEY;
    
     const api_call = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city},${country}&apiid=524901&APPID=${API_KEY}`);
     const data = await api_call.json();
